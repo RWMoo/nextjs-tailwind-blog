@@ -15,5 +15,46 @@ textarea,
 button,
 select,
 a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+:root {
+  --page-background: white;
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: grey;
+  --scrollbar-thumb-hover: lightgrey;
+  --scrollbar-width: 3px;
+}
+
+/* dark theme */
+html.dark {
+  --page-background: black;
+  --scrollbar-thumb: mediumorchid;
+  --scrollbar-thumb-hover: mediumpurple;
+}
+/ pre {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+pre::-webkit-scrollbar,
+.custom-scroll::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+
+pre::-webkit-scrollbar-track,
+.custom-scroll::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+pre::-webkit-scrollbar-thumb,
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: var(--scrollbar-width);
+}
+
+pre::-webkit-scrollbar-thumb:hover,
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
 }

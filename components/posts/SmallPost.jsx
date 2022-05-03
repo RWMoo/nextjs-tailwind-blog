@@ -5,7 +5,7 @@ import Link from "next/link";
 const SmallPost = (props) => {
   const { coverImage, title, excerpt, slug } = props;
   return (
-    <Link href={`/blog/posts/${slug}`} passHref>
+    <Link href={`/blog/${slug}`} passHref>
       <div className="flex items-center space-x-2 bg-secondary cursor-pointer">
         <div>
           <div className="relative h-20 w-20 shadow-md">

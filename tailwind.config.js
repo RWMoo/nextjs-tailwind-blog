@@ -18,6 +18,16 @@ module.exports = {
       xl: "1280px",
       "2xl": "1536px",
     },
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            "code::before": { content: "" },
+            "code::after": { content: "" },
+          },
+        },
+      },
+    },
   },
   plugins: [
     require("@tailwindcss/line-clamp"),
