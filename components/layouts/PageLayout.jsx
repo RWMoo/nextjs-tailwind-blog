@@ -13,6 +13,7 @@ const PageLayout = ({ children }) => {
         initial="initial"
         animate="animate"
         exit="exit"
+        className="xl:container flex-grow px-4 md:px-8 mx-auto"
       >
         {children}
       </motion.div>

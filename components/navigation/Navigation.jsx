@@ -33,12 +33,12 @@ const links = [
 
 const Navigation = () => {
   return (
-    <nav className="flex py-6 justify-between items-center px-5 h-20 w-full bg-primary text-body">
+    <nav className="flex py-6 justify-between items-center px-5 h-20 w-full">
       <Menu>
         <Menu.Button>
           <FaBars className="text-xl " />
         </Menu.Button>
-        <Menu.Items className="w-full absolute left-0 py-4 bg-secondary shadow-lg top-0 z-40 flex flex-col font-display">
+        <Menu.Items className="w-full absolute left-0 py-4 shadow-lg top-0 z-40 flex flex-col font-display">
           <motion.div
             initial="hidden"
             animate="show"
