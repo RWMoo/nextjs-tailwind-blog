@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
     <PageLayout>
-      <div className="flex h-full flex-col justify-around items-center text-center">
+      <div className="h-full flex flex-col justify-around items-center text-center">
         <motion.div
           variants={fadeInOut}
           animate={navigate ? "exit" : "animate"}
@@ -40,7 +40,7 @@ const Home = () => {
           onClick={onNavigate}
           variants={fadeInOutDown}
           animate={navigate ? "exit" : "animate"}
-          className=" mx-auto text-5xl p-3 "
+          className=" mx-auto text-5xl p-3"
         >
           <FaChevronCircleDown className="rounded-full border-4 transition duration-400 transform hover:scale-125" />
         </motion.button>
@@ -60,3 +60,7 @@ const Home = () => {
 };
 
 export default Home;
+
+/*
+
+*/
