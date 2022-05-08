@@ -78,7 +78,8 @@ module.exports = {
         body: "var(--color-text-body)",
         accent: "var(--color-accent)",
         dark: "var(--color-text-dark)",
-        nav: "var(--color-text-nav)"
+        nav: "var(--color-text-nav)",
+        contrast: "var(--color-text-contrast)"
       },
       borderColor: {
         primary: "var(--color-bg-primary)",

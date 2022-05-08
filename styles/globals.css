@@ -37,7 +37,8 @@ a {
   --color-text-primary: #eeeeee;
   --color-text-secondary: #d7d7d7;
   --color-text-body: #eff3f8;
-  --color-text-nav: #2f7bb9;
+  --color-text-nav: #e55d5d;
+  --color-text-contrast: #edf0f3;
   --color-accent: #e55d5d;
 }
 
@@ -51,6 +52,7 @@ a {
   --color-text-secondary: #3a3a3a;
   --color-text-body: #373737;
   --color-text-nav: #edf0f3;
+  --color-text-contrast: #151b22;
   --color-accent: #2f7bb9;
 }
 
