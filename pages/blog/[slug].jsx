@@ -1,19 +1,18 @@
-import React, { createElement, useContext } from "react";
-import Image from "next/image";
-import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
-import { getPost, getSlugs } from "../../utils/queries";
-import PageLayout from "../../components/layouts/PageLayout";
+import { serialize } from "next-mdx-remote/serialize";
+import Image from "next/image";
+import Link from "next/link";
+import { useContext, useState } from "react";
 import { FaShare } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import SimpleBar from "simplebar-react";
-import "simplebar/dist/simplebar.min.css";
 import {
-  dracula,
-  coldarkCold,
+  coldarkCold, dracula
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import PageLayout from "../../components/layouts/PageLayout";
+import SharePopover from "../../components/posts/SharePopover";
 import { ThemeContext } from "../../contexts/ThemeProvider";
 import { formatGraphCMSDate } from "../../utils";
+import { getPost, getSlugs } from "../../utils/queries";
 
 export const getStaticPaths = async () => {
   const slugs = await getSlugs();
@@ -71,7 +70,9 @@ const components = (theme) => ({
     );
   },
   pre: (props) => {
-    return <pre className="not-prose bg-transparent">{props.children}</pre>;
+    return (
+      <pre className="p-0 not-prose bg-transparent ">{props.children}</pre>
+    );
   },
 });
 
@@ -80,8 +81,8 @@ const Post = ({ post }) => {
 
   return (
     <PageLayout>
-      <article className="prose prose-sm sm:prose-base sm:max-w-none md:max-w-none md:prose-lg ">
-        <div className="relative  h-56 md:h-64 lg:h-72 xl:h-80 shadow-md">
+      <article className="prose prose-sm sm:prose-sm sm:max-w-none md:max-w-none md:prose-base  md:mt-12 lg:mt-16 xl:mt-24 2xl:mt-20">
+        <div className="relative h-56 md:h-64 lg:h-72 xl:h-80 shadow-md">
           <Image
             alt={post.coverImage.alt}
             layout="fill"
@@ -93,25 +94,24 @@ const Post = ({ post }) => {
             src={post.coverImage.url}
           />
         </div>
-        <div className="px-2">
-          <div className="flex space-x-5  items-center  mt-4 sm:mt-8 text-xs sm:text-sm md:text-base lg:text-lg">
-            <p className="font-display flex text-accent items-center ">
-              {post.category.title}
-            </p>
-            <p className="font-display flex items-center text-accent ">
-              {formatGraphCMSDate(post.date)}
-            </p>
-            <p className="font-display flex items-center text-accent ">
-              {post.minutes} minute read
-            </p>
-            <button>
-              <FaShare className="text-title" />
-            </button>
-          </div>
 
-          <h1 className="">{post.title}</h1>
-          <MDXRemote {...post.source} components={components(theme)} />
+        <div className="flex space-x-5  items-center text-body mt-4 sm:mt-8 text-xs sm:text-sm md:text-base lg:text-lg">
+          <Link href={`/blog/categories/${post.category.slug}`} passHref>
+            <button className="font-display flex items-center transition duration-300 hover:text-accent">
+              {post.category.title}
+            </button>
+          </Link>
+          <p className="font-display flex items-center ">
+            {formatGraphCMSDate(post.date)}
+          </p>
+          <p className="font-display flex items-center  ">
+            {post.minutes} minute read
+          </p>
+         <SharePopover/>
         </div>
+
+        <h1 className="">{post.title}</h1>
+        <MDXRemote {...post.source} components={components(theme)} />
       </article>
     </PageLayout>
   );

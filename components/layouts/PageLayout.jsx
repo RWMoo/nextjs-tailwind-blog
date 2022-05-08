@@ -3,21 +3,23 @@ import Footer from "../footer/Footer";
 import Navigation from "../navigation/Navigation";
 import { motion } from "framer-motion";
 import { pageVariants } from "../../utils/animations";
+import { useRouter } from "next/router";
 
 const PageLayout = ({ children }) => {
+  const router = useRouter();
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-primary">
       <Navigation />
       <motion.div
         variants={pageVariants}
         initial="initial"
         animate="animate"
         exit="exit"
-        className="xl:container flex-grow px-4 md:px-8 mx-auto w-full"
+        className="flex flex-col h-full mx-auto w-full bg-primary"
       >
-        {children}
+        <div className="container mx-auto py-6 flex-grow">{children}</div>
+        {router.asPath !== "/" && <Footer />}
       </motion.div>
-      <Footer />
     </div>
   );
 };

@@ -1,18 +1,19 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { formatGraphCMSDate } from "../../utils";
 
 const SmallPost = (props) => {
-  const { coverImage, title, excerpt, slug } = props;
+  const { coverImage, title, category, date, slug, excerpt } = props;
   return (
     <Link href={`/blog/${slug}`} passHref>
-      <div className="flex items-center space-x-2 bg-secondary cursor-pointer">
+      <div className="cursor-pointer flex items-center space-x-2 2xl:space-x-4">
         <div>
-          <div className="relative h-20 w-20 shadow-md">
+          <div className="relative h-32 sm:h-24 sm:w-24 2xl:h-32 w-32 2xl:w-32 shadow-md">
             <Image
               alt=""
               layout="fill"
-              className="rounded"
+              className="rounded-sm"
               src={coverImage.url}
               objectPosition="center"
               placeholder="blur"
@@ -21,14 +22,20 @@ const SmallPost = (props) => {
             />
           </div>
         </div>
-        <div className="px-2 w-full text-body text-left">
-          <h3 className=" line-clamp-2 text-sm font-display font-semibold">
+        <div className="px-1 w-full text-body text-left">
+          <div className="flex space-x-3 text-xs font-display text-accent">
+            <p className="py-1 rounded">{formatGraphCMSDate(date)}</p>
+            <Link href={`/blog/categories/${category.slug}`} passHref>
+              <button className="py-1 rounded z-40">{category.title}</button>
+            </Link>
+          </div>
+          <h3 className="mt-1 text-lg md:text-xl line-clamp-2 leading-snug font-display font-semibold">
             {title}
           </h3>
-          <p className="font-body text-xs mt-1 line-clamp-2 ">{excerpt}</p>
+          <p className="line-clamp-2 text-sm">{excerpt}</p>
         </div>
       </div>
-  </Link>
+    </Link>
   );
 };
 

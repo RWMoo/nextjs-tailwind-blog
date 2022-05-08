@@ -2,17 +2,17 @@ import React from "react";
 import Image from "next/image";
 import { formatGraphCMSDate } from "../../utils";
 import Link from "next/link";
+import CategoryCard from "../categories/CategoryCard";
 
 const LargePost = (props) => {
-  const { coverImage, minutes, date, title, excerpt, slug } = props;
+  const { coverImage, category, date, title, excerpt, slug } = props;
   return (
     <Link href={`/blog/${slug}`} passHref>
-      <div className="bg-gray-100 cursor-pointer">
-        <div className="relative w-full h-52 shadow-md">
+      <div className="cursor-pointer shadow-xl">
+        <div className="relative w-full h-44 md:h-56 rounded-sm overflow-hidden">
           <Image
             alt={coverImage.alt}
             layout="fill"
-            className="rounded-sm"
             objectPosition="center"
             objectFit="cover"
             placeholder="blur"
@@ -20,17 +20,19 @@ const LargePost = (props) => {
             src={coverImage.url}
           />
         </div>
-        <div className="py-5 px-4 text-body">
-          <div className="flex space-x-3 text-sm font-semibold">
-            <p>{formatGraphCMSDate(date)}</p>
-            <p>{minutes} minute read</p>
+        <div className="py-5 px-4 text-body bg-secondary">
+          <div className="flex space-x-3 text-xs">
+            <p className="font-display text-accent">
+              {formatGraphCMSDate(date)}
+            </p>
+            <p className="font-display text-accent">
+              {category.title}
+            </p>
           </div>
-          <h3 className="mt-3 text-2xl line-clamp-2 font-display font-bold">
+          <h3 className="mt-2 text-2xl md:text-2xl line-clamp-2 font-display font-bold">
             {title}
           </h3>
-          <p className="font-body text-sm mt-3 line-clamp-2 italic">
-            {excerpt}
-          </p>
+          <p className="font-body text-sm md:text-base mt-3 line-clamp-3">{excerpt}</p>
         </div>
       </div>
     </Link>

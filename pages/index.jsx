@@ -10,6 +10,8 @@ import {
   FaTwitter,
   FaDiscord,
 } from "react-icons/fa";
+import { currentDate } from "../utils";
+import SocialIcons from "../components/global/SocialIcons";
 
 const Home = () => {
   const router = useRouter();
@@ -17,21 +19,23 @@ const Home = () => {
 
   const onNavigate = () => {
     setNavigate(true);
-    router.push("/blog");
+    setTimeout(() => {
+      router.push("/blog");
+    }, 50)
   };
 
   return (
     <PageLayout>
-      <div className="h-full flex flex-col justify-around items-center text-center">
+      <div className="h-full flex-grow flex flex-col justify-around items-center text-center">
         <motion.div
           variants={fadeInOut}
           animate={navigate ? "exit" : "animate"}
         >
-          <h1 className="font-title text-7xl font-bold">Rm</h1>
-          <p className="mt-2 text-3xl font-bold font-display max-w-xs mx-auto">
+          <h1 className="font-title text-7xl md:text-8xl font-bold text-accent">Rm</h1>
+          <p className="mt-2 text-3xl md:text-4xl xl:text-5xl font-bold font-display max-w-xs mx-auto text-primary lg:mt-8">
             Hey, I&apos;m Rob.
           </p>
-          <p className="text-sm mt-4 font-display max-w-xs mx-auto">
+          <p className="text-sm xl:text-lg mt-4 font-display max-w-xs xl:max-w-sm mx-auto text-body">
             I&apos;m a front-end developer that dabbles with back-end from time
             to time.
           </p>
@@ -42,17 +46,18 @@ const Home = () => {
           animate={navigate ? "exit" : "animate"}
           className=" mx-auto text-5xl p-3"
         >
-          <FaChevronCircleDown className="rounded-full border-4 transition duration-400 transform hover:scale-125" />
+          <FaChevronCircleDown className="text-accent shadow rounded-full transition duration-400 transform hover:scale-125" />
         </motion.button>
+
         <motion.div
           variants={fadeInOut}
           animate={navigate ? "exit" : "animate"}
-          className="flex justify-center space-x-7 text-2xl mt-8"
+          className="space-y-6"
         >
-          <FaFacebook className="transition duration-400 transform hover:scale-110" />
-          <FaInstagram className="transition duration-400 transform hover:scale-110" />
-          <FaTwitter className="transition duration-400 transform hover:scale-110" />
-          <FaDiscord className="transition duration-400 transform hover:scale-110" />
+          <div className="flex justify-center space-x-7 text-2xl mt-8 md:pb-8">
+            <SocialIcons />
+          </div>
+          <p className="text-xs text-body">{`Rob Moore © ${currentDate()}`}</p>
         </motion.div>
       </div>
     </PageLayout>

@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;}
+
 html,
 body,
 body > div:first-child,
@@ -19,22 +22,45 @@ a {
 }
 
 :root {
-  --page-background: white;
   --scrollbar-track: transparent;
-  --scrollbar-thumb: grey;
-  --scrollbar-thumb-hover: lightgrey;
-  --scrollbar-width: 3px;
+  --scrollbar-width: 4px;
+  background-color: var(--color-bg-primary);
 }
 
 /* dark theme */
-html.dark {
-  --page-background: black;
-  --scrollbar-thumb: mediumorchid;
-  --scrollbar-thumb-hover: mediumpurple;
+.dark {
+  --scrollbar-thumb: var(--color-accent);
+  --color-bg-primary: #151b22;
+  --color-bg-secondary: #18242e;
+  --color-text-dark: #202f3c;
+  --color-bg-nav: #18242e;
+  --color-text-primary: #eeeeee;
+  --color-text-secondary: #d7d7d7;
+  --color-text-body: #eff3f8;
+  --color-text-nav: #2f7bb9;
+  --color-accent: #e55d5d;
 }
-/ pre {
+
+.light {
+  --scrollbar-thumb: var(--color-accent);
+  --color-bg-primary: #edf0f3;
+  --color-bg-secondary: #e0e7eb;
+  --color-bg-nav: #2f7bb9;
+  --color-text-dark: #edf0f3;
+  --color-text-primary: #282828;
+  --color-text-secondary: #3a3a3a;
+  --color-text-body: #373737;
+  --color-text-nav: #edf0f3;
+  --color-accent: #2f7bb9;
+}
+
+.page-title {
+  @apply text-3xl lg:text-4xl 2xl:text-5xl font-bold font-display;
+}
+
+pre {
   scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-color: var(--scrollbar-track);
 }
 
 pre::-webkit-scrollbar,
@@ -52,9 +78,4 @@ pre::-webkit-scrollbar-thumb,
 .custom-scroll::-webkit-scrollbar-thumb {
   background: var(--scrollbar-thumb);
   border-radius: var(--scrollbar-width);
-}
-
-pre::-webkit-scrollbar-thumb:hover,
-.custom-scroll::-webkit-scrollbar-thumb:hover {
-  background: var(--scrollbar-thumb-hover);
 }

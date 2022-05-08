@@ -15,7 +15,7 @@ const getTheme = () => {
       return "dark";
     }
   }
-  return "light";
+  return "dark";
 };
 
 const ThemeProvider = ({ initialTheme, children }) => {

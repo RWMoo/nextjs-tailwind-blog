@@ -28,6 +28,29 @@ export const getCategorySlugs = async () => {
   `);
 };
 
+export const getCategories = async () => {
+  return client.request(gql`
+    query getCategories {
+      posts {
+        category {
+          slug
+          title
+          description
+          image {
+            url
+            alt
+            width
+            height
+          }
+          posts {
+            __typename
+          }
+        }
+      }
+    }
+  `);
+};
+
 export const getPost = async (slug) => {
   return client.request(
     gql`
@@ -41,6 +64,7 @@ export const getPost = async (slug) => {
           content
           category {
             title
+            slug
           }
           coverImage {
             url
