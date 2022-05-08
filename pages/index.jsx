@@ -21,7 +21,7 @@ const Home = () => {
     setNavigate(true);
     setTimeout(() => {
       router.push("/blog");
-    }, 50)
+    }, 250)
   };
 
   return (
