@@ -3,6 +3,7 @@ import Image from "next/image";
 import { formatGraphCMSDate } from "../../utils";
 import Link from "next/link";
 import CategoryCard from "../categories/CategoryCard";
+import { GraphCMSImageLoader } from "../../utils/graphcmsImageLoader";
 
 const LargePost = (props) => {
   const { coverImage, category, date, title, excerpt, slug } = props;
@@ -18,6 +19,7 @@ const LargePost = (props) => {
             placeholder="blur"
             blurDataURL={coverImage.url}
             src={coverImage.url}
+            loader={GraphCMSImageLoader}
           />
         </div>
         <div className="py-5 px-4 text-body bg-secondary">

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { formatGraphCMSDate } from "../../utils";
+import { GraphCMSImageLoader } from "../../utils/graphcmsImageLoader";
 
 const SmallPost = (props) => {
   const { coverImage, title, category, date, slug, excerpt } = props;
@@ -19,6 +20,7 @@ const SmallPost = (props) => {
               placeholder="blur"
               blurDataURL={coverImage.url}
               objectFit="cover"
+              loader={GraphCMSImageLoader}
             />
           </div>
         </div>
