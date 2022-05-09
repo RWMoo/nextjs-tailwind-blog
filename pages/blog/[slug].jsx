@@ -80,16 +80,16 @@ const components = (theme) => ({
 const Post = ({ post }) => {
   const { theme } = useContext(ThemeContext);
   const { title, excerpt, slug, coverImage } = post;
-  const url = `${url}/blog/${slug}`
+  const postURL = `${url}/blog/${slug}`
   return (
     <PageLayout>
       <NextSeo
         title={title}
         titleTemplate="%s | RM Dev Blog"
         description={excerpt}
-        canonical={url}
+        canonical={postURL}
         openGraph={{
-          url: url,
+          url: postURL,
           title: title,
           description: excerpt,
           images: [
@@ -135,7 +135,7 @@ const Post = ({ post }) => {
           <p className="font-display flex items-center  ">
             {post.minutes} minute read
           </p>
-          <SharePopover url={url} />
+          <SharePopover url={postURL} />
         </div>
 
         <h1 className="">{post.title}</h1>
