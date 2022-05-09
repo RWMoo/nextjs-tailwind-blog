@@ -7,7 +7,7 @@ import { useWindowWidth } from "../../hooks/useWindowWidth";
 import { breakpoints } from "../../utils";
 import {
   navigationContainerVariants,
-  navigationItemVariants
+  navigationItemVariants,
 } from "../../utils/animations";
 import { links } from "../../utils/links";
 import SocialIcons from "../global/SocialIcons";
@@ -19,7 +19,7 @@ const Navigation = () => {
   const width = useWindowWidth();
   const isDesktop = width >= breakpoints.lg;
   return (
-    <nav className="flex py-6 z-40 justify-between items-center px-6 h-20 w-full bg-nav">
+    <nav className="flex py-6 z-40 justify-between items-center px-6 h-20 w-full bg-nav shadow-lg">
       {isDesktop && <DesktopNavigation />}
       {!isDesktop && <MobileNavigation />}
       <DarkModeSwitch />
@@ -35,10 +35,10 @@ const MobileNavigation = () => {
   return (
     <Menu>
       <Menu.Button onClick={() => setOpen(true)}>
-        <FaBars className="text-xl text-body transition duration-300 hover:text-accent" />
+        <FaBars className="text-xl text-nav transition duration-300 " />
       </Menu.Button>
       {open && (
-        <Menu.Items className="w-full absolute left-0 py-4 bg-secondary shadow-xl top-0 z-40 flex flex-col font-display">
+        <Menu.Items className="w-full absolute left-0 py-4 bg-nav shadow-xl top-0 z-40 flex flex-col font-display">
           <motion.div
             className="justify-center space-y-6 my-8 flex flex-col items-center w-full"
             initial="hidden"
@@ -56,7 +56,7 @@ const MobileNavigation = () => {
                 <MobileLinkItem setOpen={setOpen} {...item} />
               </motion.div>
             ))}
-            <div className="flex justify-center text-xl space-x-8 py-4">
+            <div className="flex justify-center text-xl space-x-8 py-4 text-nav">
               <SocialIcons />
             </div>
           </motion.div>

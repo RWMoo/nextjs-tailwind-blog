@@ -41,7 +41,7 @@ const Blog = ({ posts, categories }) => {
 
   return (
     <PageLayout>
-      <div className="md:mt-12 lg:mt-16 xl:mt-24 2xl:mt-20">
+      <div className="md:mt-12 lg:mt-16 xl:mt-24">
         <SearchBar />
         <CategoryList categories={categories} />
         <div className="space-y-4 xs:space-y-6 md:space-y-8 2xl:space-y-12 ">

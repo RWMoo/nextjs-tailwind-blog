@@ -8,7 +8,7 @@ const LargePost = (props) => {
   const { coverImage, category, date, title, excerpt, slug } = props;
   return (
     <Link href={`/blog/${slug}`} passHref>
-      <div className="cursor-pointer shadow-xl">
+      <div className="cursor-pointer transition duration-300 shadow hover:shadow-lg">
         <div className="relative w-full h-44 md:h-56 rounded-sm overflow-hidden">
           <Image
             alt={coverImage.alt}

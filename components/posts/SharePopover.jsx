@@ -18,7 +18,7 @@ import {
 } from "react-share";
 import { fadeInOut } from "../../utils/animations";
 
-const SharePopover = () => {
+const SharePopover = ({ url }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
@@ -47,23 +47,16 @@ const SharePopover = () => {
                 </Dialog.Title>
                 <Dialog.Description>
                   <div className="flex space-x-4 text-primary text-xl mt-4">
-                    <FacebookShareButton>
+                    <FacebookShareButton url={url}>
                       <FaFacebook className="transition duration-300 hover:text-accent" />
                     </FacebookShareButton>
-                    <InstapaperShareButton>
-                      <FaInstagram className="transition duration-300 hover:text-accent" />
-                    </InstapaperShareButton>
-                    <PinterestShareButton>
+                    <PinterestShareButton url={url}>
                       <FaPinterest className="transition duration-300 hover:text-accent" />
                     </PinterestShareButton>
-                    <RedditShareButton>
+                    <RedditShareButton url={url}>
                       <FaReddit className="transition duration-300 hover:text-accent" />
                     </RedditShareButton>
-                    <TwitterShareButton
-                      url="https://github.com/"
-                      size={32}
-                      round={true}
-                    >
+                    <TwitterShareButton url={url}>
                       <FaTwitter className="transition duration-300 hover:text-accent" />
                     </TwitterShareButton>
                   </div>

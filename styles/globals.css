@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 html {
-  scroll-behavior: smooth;}
+  scroll-behavior: smooth;
+}
 
 html,
 body,
@@ -11,6 +12,7 @@ body > div:first-child,
 div#__next,
 div#__next > div {
   height: 100%;
+
 }
 
 input,
@@ -27,8 +29,10 @@ a {
   background-color: var(--color-bg-primary);
 }
 
+
 /* dark theme */
 .dark {
+
   --scrollbar-thumb: var(--color-accent);
   --color-bg-primary: #151b22;
   --color-bg-secondary: #18242e;
@@ -48,11 +52,11 @@ a {
   --color-bg-secondary: #e0e7eb;
   --color-bg-nav: #2f7bb9;
   --color-text-dark: #edf0f3;
-  --color-text-primary: #282828;
+  --color-text-primary: #333333;
   --color-text-secondary: #3a3a3a;
   --color-text-body: #373737;
   --color-text-nav: #edf0f3;
-  --color-text-contrast: #151b22;
+  --color-text-contrast: #1f2834;
   --color-accent: #2f7bb9;
 }
 

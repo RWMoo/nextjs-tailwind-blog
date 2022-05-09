@@ -9,7 +9,7 @@ const MobileLinkItem = ({ name, link, setOpen }) => {
         onClick={() => {
           setOpen(false);
         }}
-        className="text-center text-sm text-nav transition duration-300 hover:text-accent"
+        className="text-center text-sm text-gray-100"
       >
         {() => <a>{name}</a>}
       </Menu.Item>

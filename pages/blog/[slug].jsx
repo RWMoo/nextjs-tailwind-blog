@@ -2,16 +2,17 @@ import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext, useState } from "react";
-import { FaShare } from "react-icons/fa";
+import { NextSeo } from "next-seo";
+import { useContext } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
-  coldarkCold, dracula
+  coldarkCold,
+  dracula,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import PageLayout from "../../components/layouts/PageLayout";
 import SharePopover from "../../components/posts/SharePopover";
 import { ThemeContext } from "../../contexts/ThemeProvider";
-import { formatGraphCMSDate } from "../../utils";
+import { formatGraphCMSDate, url } from "../../utils";
 import { getPost, getSlugs } from "../../utils/queries";
 
 export const getStaticPaths = async () => {
@@ -78,9 +79,36 @@ const components = (theme) => ({
 
 const Post = ({ post }) => {
   const { theme } = useContext(ThemeContext);
-
+  const { title, excerpt, slug, coverImage } = post;
+  const url = `${url}/blog/${slug}`
   return (
     <PageLayout>
+      <NextSeo
+        title={title}
+        titleTemplate="%s | RM Dev Blog"
+        description={excerpt}
+        canonical={url}
+        openGraph={{
+          url: url,
+          title: title,
+          description: excerpt,
+          images: [
+            {
+              url: coverImage.url,
+              width: 800,
+              height: 600,
+              alt: coverImage.alt,
+              type: "image/png",
+            },
+          ],
+          site_name: title,
+        }}
+        twitter={{
+          handle: "@robmooredev",
+          site: "@robmooredev",
+          cardType: "summary_large_image",
+        }}
+      />
       <article className="prose prose-sm sm:prose-sm sm:max-w-none md:max-w-none md:prose-base  md:mt-12 lg:mt-16 xl:mt-24 2xl:mt-20">
         <div className="relative h-56 md:h-64 lg:h-72 xl:h-80 shadow-md">
           <Image
@@ -107,7 +135,7 @@ const Post = ({ post }) => {
           <p className="font-display flex items-center  ">
             {post.minutes} minute read
           </p>
-         <SharePopover/>
+          <SharePopover url={url} />
         </div>
 
         <h1 className="">{post.title}</h1>

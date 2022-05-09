@@ -1,13 +1,21 @@
+import { useRouter } from "next/router";
 import React from "react";
 import { FaDiscord, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FacebookShareButton, TwitterShareButton } from "react-share";
 
 const SocialIcons = () => {
+  const router = useRouter()
   return (
     <>
-      <FaFacebook className="transition duration-300 transform hover:scale-110 text-contrast" />
-      <FaInstagram className="transition duration-300 transform hover:scale-110 text-contrast" />
-      <FaTwitter className="transition duration-300 transform hover:scale-110 text-contrast" />
-      <FaDiscord className="transition duration-300 transform hover:scale-110 text-contrast" />
+      <button onClick={() => router.push("https://www.facebook.com/profile.php?id=100081015105343")}>
+        <FaFacebook className="transition duration-300 transform hover:scale-110" />
+      </button>
+      <button onClick={() => router.push("https://twitter.com/robmooredev")}>
+        <FaTwitter className="transition duration-300 transform hover:scale-110" />
+      </button>
+      <button onClick={() => router.push("https://discord.gg/programming")}>
+        <FaDiscord className="transition duration-300 transform hover:scale-110" />
+      </button>
     </>
   );
 };

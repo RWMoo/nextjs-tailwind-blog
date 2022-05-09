@@ -1,7 +1,7 @@
 // joins the conditional result's style with the rest
 
 import { format, parseISO } from "date-fns";
-
+export const url = "https://splendid-froyo-bdee76.netlify.app"
 export const classNamesHelper = (...classes) =>
   classes.filter(Boolean).join(" ");
 
