@@ -14,6 +14,7 @@ import SharePopover from "../../components/posts/SharePopover";
 import { ThemeContext } from "../../contexts/ThemeProvider";
 import { formatGraphCMSDate, url } from "../../utils";
 import { getPost, getSlugs } from "../../utils/queries";
+import { GraphCMSImageLoader } from "../../utils/graphcmsImageLoader";
 
 export const getStaticPaths = async () => {
   const slugs = await getSlugs();
@@ -120,6 +121,7 @@ const Post = ({ post }) => {
             placeholder="blur"
             blurDataURL={post.coverImage.url}
             src={post.coverImage.url}
+            loader={GraphCMSImageLoader}
           />
         </div>
 

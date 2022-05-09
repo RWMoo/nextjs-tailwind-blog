@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-
+import Script from "next/script";
 class MyDocument extends Document {
   render() {
     return (
@@ -15,6 +15,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Herr+Von+Muellerhoff&family=Noticia+Text:ital@0;1&family=Telex&display=swap"
             rel="stylesheet"
           />
+          <script async src="/scripts/checkBrowser.js" />
         </Head>
         <body>
           <Main />

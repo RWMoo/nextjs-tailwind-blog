@@ -13,11 +13,8 @@ const LargePost = (props) => {
         <div className="relative w-full h-44 md:h-56 rounded-sm overflow-hidden">
           <Image
             alt={coverImage.alt}
-            layout="fill"
-            objectPosition="center"
-            objectFit="cover"
-            placeholder="blur"
-            blurDataURL={coverImage.url}
+            width={50}
+            height={50}
             src={coverImage.url}
             loader={GraphCMSImageLoader}
           />
@@ -27,14 +24,14 @@ const LargePost = (props) => {
             <p className="font-display text-accent">
               {formatGraphCMSDate(date)}
             </p>
-            <p className="font-display text-accent">
-              {category.title}
-            </p>
+            <p className="font-display text-accent">{category.title}</p>
           </div>
           <h3 className="mt-2 text-2xl md:text-2xl line-clamp-2 font-display font-bold">
             {title}
           </h3>
-          <p className="font-body text-sm md:text-base mt-3 line-clamp-3">{excerpt}</p>
+          <p className="font-body text-sm md:text-base mt-3 line-clamp-3">
+            {excerpt}
+          </p>
         </div>
       </div>
     </Link>

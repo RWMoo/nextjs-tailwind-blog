@@ -69,6 +69,8 @@ export const getPost = async (slug) => {
           coverImage {
             url
             alt
+            width
+            height
           }
           minutes
         }
@@ -91,6 +93,8 @@ export const getPosts = async () => {
           coverImage {
             url
             alt
+            width
+            height
           }
           category {
             title
@@ -122,6 +126,8 @@ export const getPostsByCategory = async (slug) => {
           coverImage {
             url
             alt
+            width
+            height
           }
           minutes
         }
