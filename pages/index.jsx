@@ -19,7 +19,7 @@ const Home = () => {
     }, 500);
   };
 
-  const title = `RM Dev Blog | ${currentDate}`
+  const title = `RM Dev Blog | ${currentDate()}`
   const description = "Hey, I'm Rob. I'm a front-end developer that dabbles with back-end from time to time. I love finding and exploring new web technologies."
   const image = {
     url: "https://media.graphassets.com/RPNOKQgLSFK1xcrSAtld",
@@ -47,6 +47,7 @@ const Home = () => {
           site_name: title,
         }}
         twitter={{
+          image: url,
           handle: '@robmooredev',
           site: '@robmooredev',
           cardType: 'summary_large_image'
